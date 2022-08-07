@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:14.4
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: Template-App
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+     - './frontend/:/usr/src'
+    ports:
+     - "8080:8080"
+    tty: true
+    stdin_open: true
+    depends_on:
+     - database
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+     - './backend/:/usr/src'
+    ports:
+     - "8000:8000"
+    tty: true
+    stdin_open: true
+    depends_on:
+     - frontend
