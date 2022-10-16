@@ -11,8 +11,8 @@
       </label>
       <div id="sidebarMenu">
         <ul class="sidebarMenuInner">
-          <li><router-link to="/" class="link" @click="hideSideBar">ページ1</router-link></li>
-          <li><router-link to="/userList" class="link" @click="hideSideBar">ページ2</router-link></li>
+          <li><router-link to="/" class="link" @click="hideSideBar">トップページ</router-link></li>
+          <li><router-link to="/userList" class="link" @click="hideSideBar">ユーザー一覧</router-link></li>
           <li><router-link to="/xxxx" class="link" @click="hideSideBar">Not Found</router-link></li>
         </ul>
       </div>
@@ -26,16 +26,16 @@ export default {
   name: 'NavBar',
   setup() {
     // ページタイトル
-    const pageTitle =  ref('Title')
+    const pageTitle = ref('Title')
 
-    return {
-        pageTitle
-    }
-  },
-  methods: {
     // サイドバー非表示
-    hideSideBar() {
+    const hideSideBar = () => {
       document.getElementById('openSidebarMenu').checked = false
+    }
+    
+    return {
+      pageTitle,
+      hideSideBar
     }
   }
 }
