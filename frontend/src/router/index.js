@@ -19,7 +19,6 @@ const routes = [
         meta: { requiredAuth: true },
         component: () => import(/* webpackChunkName: "user-list" */ '../views/UserListView.vue')
       },
-
     ]
   },
   {
@@ -33,6 +32,7 @@ const routes = [
   }
 ]
 
+// routerの設定
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
