@@ -13,7 +13,6 @@
         <ul class="sidebarMenuInner">
           <li><router-link to="/" class="link" @click="hideSideBar">トップページ</router-link></li>
           <li><router-link to="/userList" class="link" @click="hideSideBar">ユーザー一覧</router-link></li>
-          <li><router-link to="/xxxx" class="link" @click="hideSideBar">Not Found</router-link></li>
         </ul>
       </div>
       <br><br><br>
