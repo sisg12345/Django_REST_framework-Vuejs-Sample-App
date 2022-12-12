@@ -43,12 +43,6 @@ export default {
     const table = reactive({
       isLoading: false,
       isReSearch: false,
-      rowClasses: (row) => {
-        if (row.id == 1) {
-          return ["aaa", "is-id-one"]
-        }
-        return ["bbb", "other"]
-      },
       columns: [
         {
           label: "ID",
@@ -126,7 +120,7 @@ export default {
           limit = 20
         }
         table.rows = tableData
-        table.totalRecordCount = 20
+        table.totalRecordCount = tableData.length
         table.sortable.order = order
         table.sortable.sort = sort
       }, 600)
