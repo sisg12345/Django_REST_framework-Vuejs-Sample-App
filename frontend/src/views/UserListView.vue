@@ -69,7 +69,7 @@ export default {
     const saveUserInfo = async (saveUserData) => {
       await axios.patch('api/v1/user/' + saveUserData.userId + '/', {
         user_name: saveUserData.userName,
-        email: saveUserData.email,
+        email: saveUserData.userEmail,
         user_type: saveUserData.userType,
         user_remark: saveUserData.userRemark
       }).then(() => {
